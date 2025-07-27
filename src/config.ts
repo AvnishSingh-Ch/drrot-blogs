@@ -3,35 +3,37 @@ import type {
   NavBarConfig,
   ProfileConfig,
   SiteConfig,
-} from './types/config'
-import { LinkPreset } from './types/config'
+} from "./types/config";
+import { LinkPreset } from "./types/config";
 
 export const siteConfig: SiteConfig = {
-  title: 'Avnish Singh',
-  subtitle: 'Blog website',
-  lang: 'en',         // 'en', 'zh_CN', 'zh_TW', 'ja', 'ko'
+  title: "Welcome to the Clinic of Code",
+  subtitle:
+    "Sudo read my mind - Where digital surgery meets cybersecurity mastery",
+  lang: "en", // 'en', 'zh_CN', 'zh_TW', 'ja', 'ko'
   themeColor: {
-    hue: 250,         // Default hue for the theme color, from 0 to 360. e.g. red: 0, teal: 200, cyan: 250, pink: 345
-    fixed: false,     // Hide the theme color picker for visitors
+    hue: 250, // Default hue for the theme color, from 0 to 360. e.g. red: 0, teal: 200, cyan: 250, pink: 345
+    fixed: false, // Hide the theme color picker for visitors
   },
   banner: {
     enable: false,
-    src: 'assets/images/demo-banner.png',   // Relative to the /src directory. Relative to the /public directory if it starts with '/'
-    position: 'cenzter',      // Equivalent to object-position, only supports 'top', 'center', 'bottom'. 'center' by default
+    src: "assets/images/demo-banner.png", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
+    position: "center", // Equivalent to object-position, only supports 'top', 'center', 'bottom'. 'center' by default
     credit: {
-      enable: false,         // Display the credit text of the banner image
-      text: '',              // Credit text to be displayed
-      url: ''                // (Optional) URL link to the original artwork or artist's page
-    }
+      enable: false, // Display the credit text of the banner image
+      text: "", // Credit text to be displayed
+      url: "", // (Optional) URL link to the original artwork or artist's page
+    },
   },
-  favicon: [    // Leave this array empty to use the default favicon
-    // {
-    //   src: '/favicon/icon.png',    // Path of the favicon, relative to the /public directory
-    //   theme: 'light',              // (Optional) Either 'light' or 'dark', set only if you have different favicons for light and dark mode
-    //   sizes: '32x32',              // (Optional) Size of the favicon, set only if you have favicons of different sizes
-    // }
-  ]
-}
+  favicon: [
+    // Leave this array empty to use the default favicon
+    {
+      src: "/favicon/icon.png", // Path of the favicon, relative to the /public directory
+      theme: "dark", // (Optional) Either 'light' or 'dark', set only if you have different favicons for light and dark mode
+      sizes: "32x32", // (Optional) Size of the favicon, set only if you have favicons of different sizes
+    },
+  ],
+};
 
 export const navBarConfig: NavBarConfig = {
   links: [
@@ -39,40 +41,42 @@ export const navBarConfig: NavBarConfig = {
     LinkPreset.Archive,
     LinkPreset.About,
     {
-      name: 'My Website',
-      url: 'https://avnishsingh.tech',     // Internal links should not include the base path, as it is automatically added
-      external: true,                               // Show an external link icon and will open in a new tab
+      name: "Portfolio",
+      url: "https://avnishsingh.tech", // Internal links should not include the base path, as it is automatically added
+      external: true, // Show an external link icon and will open in a new tab
     },
   ],
-}
+};
 
 export const profileConfig: ProfileConfig = {
-  avatar: 'assets/images/demo-avatar.png',  // Relative to the /src directory. Relative to the /public directory if it starts with '/'
-  name: 'Avnish Singh',
-  bio: 'Hey there, welcome! Check out my blog posts on cybersecurity, programming, computer science, and other topics I like.',
+  avatar: "assets/images/drroot.png", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
+  name: "Dr. Root",
+  bio: "Digital surgeon operating deep in the system. Hacker, writer, and code clinic operator. Performing emergency procedures on vulnerable networks and teaching the art of digital defense.",
+  altText:
+    "Dr. Root, the digital surgeon and cybersecurity expert, ready to operate on your code and systems.",
   links: [
     {
-      name: 'Twitter',
-      icon: 'fa6-brands:twitter',       // Visit https://icones.js.org/ for icon codes
-                                        // You will need to install the corresponding icon set if it's not already included
-                                        // `pnpm add @iconify-json/<icon-set-name>`
-      url: 'https://X.com/Avnish_singh__',
+      name: "Twitter",
+      icon: "fa6-brands:twitter", // Visit https://icones.js.org/ for icon codes
+      // You will need to install the corresponding icon set if it's not already included
+      // `pnpm add @iconify-json/<icon-set-name>`
+      url: "https://X.com/CybrAvnish",
     },
     {
-      name: 'Linkedin',
-      icon: 'fa6-brands:linkedin',
-      url: 'https://linkedin.com/in/avnish-singh-/',
+      name: "LinkedIn",
+      icon: "fa6-brands:linkedin",
+      url: "https://linkedin.com/in/cybravnish/",
     },
     {
-      name: 'GitHub',
-      icon: 'fa6-brands:github',
-      url: 'https://github.com/avnish-S',
+      name: "GitHub Lab",
+      icon: "fa6-brands:github",
+      url: "https://github.com/CybrAvnish",
     },
   ],
-}
+};
 
 export const licenseConfig: LicenseConfig = {
   enable: true,
-  name: 'CC BY-NC-SA 4.0',
-  url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
-}
+  name: "CC BY-NC-SA 4.0",
+  url: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+};
