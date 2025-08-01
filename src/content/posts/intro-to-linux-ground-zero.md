@@ -120,23 +120,19 @@ Ready to go deeper?
 Tomorrow we’ll cover how to actually **install Linux** (without nuking your system).  
 See you in Day 2 of Linux Ground Zero 🔥
 
-<!-- Load Waline CSS -->
-<link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
 
-<!-- Comment box container -->
-<div id="waline"></div>
-
-<!-- Correct script block -->
-<script is:inline type="module">
-  import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.mjs';
-
-  init({
-    el: '#waline',
-    serverURL: 'https://blog-comment-sand.vercel.app',
-    lang: 'en',
-    emoji: [
-      '//unpkg.com/@waline/emojis@1.1.0/weibo',
-      '//unpkg.com/@waline/emojis@1.1.0/bilibili',
-    ],
-  });
+<script src="https://giscus.app/client.js"
+        data-repo="CybrAvnish/blog"
+        data-repo-id="R_kgDOM6gZcg"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOM6gZcs4CjiA0"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
 </script>
