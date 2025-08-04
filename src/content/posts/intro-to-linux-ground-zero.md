@@ -1,5 +1,5 @@
 ---
-title: "Day 1 — The Story of Linux: From Hobby Project to World Domination"
+title: "Linux ground zero Chapter 1: - From Hobby Project to World Domination"
 description: "Welcome to Linux Ground Zero, where we go from zero to root access like pros 😎
 This is Day 1, and today we’re talking about WTF is Linux, where it came from, why it’s everywhere, and why you should care."
 category: "Linux Ground zero"
