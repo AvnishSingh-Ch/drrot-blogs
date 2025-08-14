@@ -3,7 +3,7 @@ import "../styles/global.css";
 import Footer from "@components/Footer.astro";
 import Navbar from "@components/Navbar.astro";
 import BackToTop from "@components/control/BackToTop.astro";
-import SideBar from "@components/widget/SideBar.astro";
+
 import Layout from "./Layout.astro";
 import { Icon } from "astro-icon/components";
 import { siteConfig } from "../config";
@@ -48,10 +48,7 @@ const hasBannerLink = !!siteConfig.banner.credit.url;
         class="z-50 pointer-events-none relative transition-all duration-700 max-w-[var(--page-width)] px-0 md:px-4 mx-auto"
         class:list={[""]}
       >
-        <div
-          id="navbar-wrapper"
-          class="pointer-events-auto sticky top-0 transition-all"
-        >
+        <div id="navbar-wrapper" class="pointer-events-auto transition-all">
           <Navbar />
         </div>
       </div>
@@ -61,15 +58,14 @@ const hasBannerLink = !!siteConfig.banner.credit.url;
         class:list={[
           {
             "top-[30vh]": siteConfig.banner.enable,
-            "top-[5.5rem]": !siteConfig.banner.enable,
+            "top-[4.5rem]": !siteConfig.banner.enable,
           },
         ]}
       >
         <div class="relative max-w-[var(--page-width)] mx-auto">
           <div
             id="main-grid"
-            class="transition duration-700 w-full left-0 right-0 grid grid-cols-[17.5rem_auto] grid-rows-[auto_1fr_auto] lg:grid-rows-[auto]
-          mx-auto gap-4 px-0 md:px-4"
+            class="transition duration-700 w-full mx-auto px-4 md:px-6"
           >
             <!-- Banner image credit -->
             {
@@ -104,25 +100,17 @@ const hasBannerLink = !!siteConfig.banner.credit.url;
               )
             }
 
-            <SideBar
-              class="mb-4 row-start-2 row-end-3 col-span-2 lg:row-start-1 lg:row-end-2 lg:col-span-1 lg:max-w-[17.5rem] onload-animation"
-            />
-
             <main
               id="swup-container"
-              class="transition-swup-fade col-span-2 lg:col-span-1 overflow-hidden"
+              class="transition-swup-fade overflow-hidden"
             >
-              <div id="content-wrapper" class="onload-animation">
+              <div id="content-wrapper" class="onload-animation pt-8">
                 <slot />
-                <div class="footer col-span-2 onload-animation hidden lg:block">
+                <div class="footer onload-animation mt-8">
                   <Footer />
                 </div>
               </div>
             </main>
-
-            <div class="footer col-span-2 onload-animation block lg:hidden">
-              <Footer />
-            </div>
           </div>
           <BackToTop />
         </div>

@@ -1,0 +1,51 @@
+---
+import { profileConfig } from "../config";
+import { getSortedPosts } from "../utils/content-utils";
+import { getPostUrlBySlug } from "../utils/url-utils";
+import ImageWrapper from "./misc/ImageWrapper.astro";
+import { Icon } from "astro-icon/components";
+
+// Get the latest post
+const posts = await getSortedPosts();
+const latestPost = posts[0];
+---
+
+<section class="hero-section mb-12 onload-animation">
+  <div class="card-base p-8 text-center">
+    <!-- Profile Image -->
+    <div class="mb-4">
+      <ImageWrapper
+        src={profileConfig.avatar || ""}
+        alt="Profile Image"
+        class="w-14 h-14 rounded-full object-cover mx-auto border-2 border-[var(--primary)]/20"
+      />
+    </div>
+
+    <!-- Name and Tagline -->
+    <h1 class="text-3xl font-sans font-semibold text-90 mb-2 tracking-wide">
+      {profileConfig.name}
+    </h1>
+    <p class="text-lg text-75 mb-6 font-serif">
+      Ethical Hacker, Blogger, Digital Explorer
+    </p>
+
+    <!-- CTA Button -->
+    {
+      latestPost && (
+        <a
+          href={getPostUrlBySlug(latestPost.slug)}
+          class="btn-regular px-5 py-2 rounded-lg font-medium inline-flex items-center gap-2 hover:scale-105 active:scale-95 transition-transform text-sm"
+        >
+          <Icon name="material-symbols:article-outline" class="text-base" />
+          Read Latest Post
+        </a>
+      )
+    }
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    animation-delay: 50ms;
+  }
+</style>

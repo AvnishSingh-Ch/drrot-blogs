@@ -6,7 +6,14 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Roboto", "sans-serif", ...defaultTheme.fontFamily.sans],
+        sans: ["Inter", "Work Sans", ...defaultTheme.fontFamily.sans],
+        serif: ["Source Serif Pro", "Lora", ...defaultTheme.fontFamily.serif],
+      },
+      maxWidth: {
+        'reading': '1200px',
+      },
+      fontSize: {
+        'reading': ['18px', '1.8'],
       },
     },
   },

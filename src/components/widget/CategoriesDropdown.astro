@@ -1,0 +1,109 @@
+---
+import { Icon } from "astro-icon/components";
+import { getCategoryList } from "../../utils/content-utils";
+import { getCategoryUrl } from "../../utils/url-utils";
+
+const categories = await getCategoryList();
+---
+
+<div class="relative">
+  <button
+    id="categories-dropdown-btn"
+    class="btn-plain scale-animation rounded-lg h-11 font-bold px-5 active:scale-95 flex items-center gap-2"
+  >
+    Categories
+    <Icon
+      name="material-symbols:keyboard-arrow-down"
+      class="text-[1.25rem] transition-transform"
+      id="categories-arrow"
+    />
+  </button>
+
+  <div
+    id="categories-dropdown"
+    class="absolute top-full left-0 mt-2 w-72 bg-[var(--float-panel-bg)] rounded-lg shadow-xl border border-black/10 dark:border-white/10 opacity-0 invisible transition-all duration-200 z-50"
+  >
+    <div class="p-4">
+      <div class="text-xs font-semibold text-50 mb-3 uppercase tracking-wide">
+        Browse Categories
+      </div>
+      <div class="grid grid-cols-1 gap-1">
+        {
+          categories.map((category) => (
+            <a
+              href={getCategoryUrl(category.name)}
+              class="group flex items-center justify-between px-3 py-2.5 text-sm text-75 hover:bg-[var(--btn-plain-bg-hover)] hover:text-[var(--primary)] transition rounded-md"
+            >
+              <span class="font-medium group-hover:text-[var(--primary)]">
+                {category.name}
+              </span>
+              <span class="text-xs text-50 bg-[var(--btn-regular-bg)] px-2 py-1 rounded-full min-w-[1.5rem] text-center">
+                {category.count}
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function initCategoriesDropdown() {
+    const button = document.getElementById("categories-dropdown-btn");
+    const dropdown = document.getElementById("categories-dropdown");
+    const arrow = document.getElementById("categories-arrow");
+
+    if (!button || !dropdown || !arrow) return;
+
+    let isOpen = false;
+
+    function toggleDropdown() {
+      isOpen = !isOpen;
+
+      if (isOpen) {
+        dropdown.classList.remove("opacity-0", "invisible");
+        dropdown.classList.add("opacity-100", "visible");
+        arrow.classList.add("rotate-180");
+      } else {
+        dropdown.classList.add("opacity-0", "invisible");
+        dropdown.classList.remove("opacity-100", "visible");
+        arrow.classList.remove("rotate-180");
+      }
+    }
+
+    function closeDropdown() {
+      if (isOpen) {
+        isOpen = false;
+        dropdown.classList.add("opacity-0", "invisible");
+        dropdown.classList.remove("opacity-100", "visible");
+        arrow.classList.remove("rotate-180");
+      }
+    }
+
+    button.addEventListener("click", (e) => {
+      e.stopPropagation();
+      toggleDropdown();
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener("click", (e) => {
+      if (!button.contains(e.target) && !dropdown.contains(e.target)) {
+        closeDropdown();
+      }
+    });
+
+    // Close dropdown on escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closeDropdown();
+      }
+    });
+  }
+
+  // Initialize on page load
+  document.addEventListener("DOMContentLoaded", initCategoriesDropdown);
+
+  // Re-initialize after page transitions
+  document.addEventListener("astro:after-swap", initCategoriesDropdown);
+</script>

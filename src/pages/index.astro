@@ -1,0 +1,26 @@
+---
+import PostPage from "../components/PostPage.astro";
+import MainGridLayout from "../layouts/MainGridLayout.astro";
+import { getSortedPosts } from "../utils/content-utils";
+
+// Get all posts without pagination
+const allPosts = await getSortedPosts();
+
+// Create a page-like object to match the expected structure
+const page = {
+  data: allPosts,
+  currentPage: 1,
+  lastPage: 1,
+  size: allPosts.length,
+  total: allPosts.length,
+  url: {
+    current: "/",
+    next: undefined,
+    prev: undefined,
+  },
+};
+---
+
+<MainGridLayout>
+  <PostPage page={page} />
+</MainGridLayout>

@@ -1,0 +1,62 @@
+---
+interface Props {
+  title: string;
+  id: string;
+  class?: string;
+  style?: string;
+}
+
+const { title, id, class: className, style } = Astro.props;
+---
+
+<div class:list={["card-base p-3", className]} style={style}>
+  <button
+    class="w-full flex items-center justify-between text-left font-medium text-90 mb-2 hover:text-[var(--primary)] transition collapsible-btn"
+    data-target={`${id}-content`}
+  >
+    <span class="tracking-wide">{title}</span>
+    <svg
+      class="w-4 h-4 transition-transform"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M19 9l-7 7-7-7"></path>
+    </svg>
+  </button>
+
+  <div id={`${id}-content`} class="space-y-1">
+    <slot />
+  </div>
+</div>
+
+<script>
+  // Add click handlers for collapsible widgets
+  function initCollapsibleWidgets() {
+    const buttons = document.querySelectorAll(".collapsible-btn");
+    buttons.forEach((button) => {
+      button.addEventListener("click", function () {
+        const targetId = this.getAttribute("data-target");
+        const content = document.getElementById(targetId);
+        const svg = this.querySelector("svg");
+
+        if (content) {
+          content.classList.toggle("hidden");
+        }
+        if (svg) {
+          svg.classList.toggle("rotate-180");
+        }
+      });
+    });
+  }
+
+  // Initialize on page load
+  document.addEventListener("DOMContentLoaded", initCollapsibleWidgets);
+
+  // Re-initialize after page transitions
+  document.addEventListener("astro:after-swap", initCollapsibleWidgets);
+</script>
