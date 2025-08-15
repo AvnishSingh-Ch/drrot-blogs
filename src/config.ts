@@ -49,7 +49,8 @@ export const navBarConfig: NavBarConfig = {
 };
 
 export const profileConfig: ProfileConfig = {
-  avatar: "assets/images/drroot.png", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
+  avatar:
+    "https://raw.githubusercontent.com/AvnishSingh-Ch/web-img/main/profile/drroot.png", // Profile image from GitHub
   name: "Dr. Root",
   bio: "Digital surgeon operating deep in the system. Hacker, writer, and code clinic operator. Performing emergency procedures on vulnerable networks and teaching the art of digital defense.",
   altText:
