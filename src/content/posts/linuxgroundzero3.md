@@ -1,5 +1,5 @@
 ﻿---
-title: "Linux ground zero Chapter 3: Try Linux Without Installing —  Installing Linux for Real: Live USBs & Dual‑Boot Guide"
+title: "Linux ground zero Chapter 3: Installing Linux for Real: Dual‑Boot Guide"
 description: "This is the fully detailed, no‑panic, **step‑by‑step** edition. If you’ve tested Linux in a VM or Live USB, this guide takes you from _curious_ → _installed_ without nuking your Windows/macOS setup.."
 category: "Linux Ground zero"
 author: "Dr. Root"
